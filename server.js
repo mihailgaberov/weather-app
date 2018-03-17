@@ -5,10 +5,9 @@ const app = express()
 require('dotenv').config()
 
 const apiKey = process.env.WEATHERAPP_API_KEY
-
+app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
-app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
   res.render('index')
