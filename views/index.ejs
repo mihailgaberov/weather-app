@@ -16,13 +16,13 @@
                 <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
                 <input type="submit" class="ghost-button" value="Get Weather">
             </form>
-            <% if(weather !== null){ %>
+            <% if(typeof weather !== 'undefined'){ %>
                 <p>
                     <%= weather %>
                 </p>
             <% } %>
 
-            <% if(error !== null){ %>
+            <% if(typeof error !== 'undefined'){ %>
                 <p>
                     <%= error %>
                 </p>
