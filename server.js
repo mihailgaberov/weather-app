@@ -5,7 +5,7 @@ const app = express()
 require('dotenv').config()
 
 const apiKey = process.env.WEATHERAPP_API_KEY
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
