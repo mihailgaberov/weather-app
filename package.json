@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Simple app for showing the weather and sending email warnings if the temperature is less or more than specified limits, by consuming openweathermap.org. Built with NodeJS for self-training and self usage.",
   "main": "index.js",
+  "engines": {
+    "node": "9.4.0"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
