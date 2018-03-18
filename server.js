@@ -5,6 +5,8 @@ const app = express()
 require('dotenv').config()
 
 const apiKey = process.env.WEATHERAPP_API_KEY
+const port = process.env.PORT || 8080;
+
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
@@ -31,6 +33,6 @@ app.post('/', function (req, res) {
   })
 })
 
-app.listen(3000, function () {
-  console.log('Server running on por 3000')
+app.listen(port, function () {
+  console.log('Server running on port: ', port)
 })
