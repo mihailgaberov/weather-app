@@ -1,15 +1,13 @@
 /*
-  Styles from this codepen:
+  Styles from this codepen and modified:
   https://codepen.io/official_naveen/pen/rgknI
 */
 
 body {
-  width: 800px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
 }
 .container {
-  width: 600px;
   margin: 0 auto;
 }
 fieldset {
@@ -36,7 +34,6 @@ fieldset {
   font-size: 25px;
   border:0px;
   outline: none;
-  width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -59,7 +56,6 @@ fieldset {
   border:2px solid #ddd;
   padding:10px 30px;
   width: 100%;
-  min-width: 220px;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
