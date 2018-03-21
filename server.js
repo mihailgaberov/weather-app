@@ -55,7 +55,6 @@ function sendEmail() {
         throw new Error('Error, please try again')
       } else {
         const roundedWeather = Math.round(parseInt(weather.main.temp))
-        console.log('roundedWeather= ', roundedWeather)
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
           to: [MY_EMAIL, HER_EMAIL],
