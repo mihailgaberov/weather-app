@@ -50,13 +50,14 @@ function sendEmail() {
     if (err) {
       throw new Error('Error, please try again')
     } else {
-	  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-	  const weather = JSON.parse(body)
-	  let text = ''
+	sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+	const weather = JSON.parse(body)
+	let text = ''
+	let roundedWeather = ''
       if (!weather || weather.main === undefined) {
 	text = 'Error occurred fetching the weather info, please check the Openweathermap API, it might be changed.'
       } else {
-        const roundedWeather = Math.round(parseInt(weather.main.temp))
+        roundedWeather = Math.round(parseInt(weather.main.temp))
 	text = `Your Majesty, The weather today in ${emailCity} will be ${roundedWeather}`
       }
 	const msg = {
