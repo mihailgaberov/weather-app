@@ -69,8 +69,7 @@ function sendEmail() {
   })
 }
 
-//const job = new CronJob('00 30 07 * * 1-5', function () {
-const job = new CronJob('*/2 * * * *', function () {
+const job = new CronJob('00 30 07 * * 1-5', function () {
     sendEmail()
   }, function () {
     console.log('stopped...')
