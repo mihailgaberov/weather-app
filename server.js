@@ -28,11 +28,12 @@ app.post('/', function (req, res) {
     if (err) {
       res.render('index', { weather: null, error: 'Error, please try again' })
     } else {
-      const weather = JSON.parse(body)
-      if (!weather || weather.main === undefined) {
+      const weatherData = JSON.parse(body)
+      if (!weatherData || weatherData.main === undefined) {
         res.render('index', { weather: null, error: 'Error, please try again' })
       } else {
-        const weatherText = `It's ${Math.round(parseInt(weather.main.temp))} degrees in ${weather.name}!`
+        const weatherText = `It's ${Math.round(parseInt(weatherData.main.temp))} degrees in ${weatherData.name}, with ${weatherData.weather[0].description}!`
+        // const img = `<img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'>`
         res.render('index', { weather: weatherText, error: null })
       }
     }
@@ -51,21 +52,21 @@ function sendEmail() {
       throw new Error('Error, please try again')
     } else {
 	sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-	const weather = JSON.parse(body)
+	const weatherData = JSON.parse(body)
 	let text = ''
 	let roundedWeather = ''
-      if (!weather || weather.main === undefined) {
+      if (!weatherData || weatherData.main === undefined) {
 	text = 'Error occurred fetching the weather info, please check the Openweathermap API, it might be changed.'
       } else {
-        roundedWeather = Math.round(parseInt(weather.main.temp))
-	text = `Your Majesty, The weather today in ${emailCity} will be ${roundedWeather}`
+        roundedWeather = Math.round(parseInt(weatherData.main.temp))
+	text = `Your Majesty, The weather today in ${emailCity} will be ${roundedWeather}, with ${weatherData.weather[0].description}`
       }
 	const msg = {
           to: [MY_EMAIL, HER_EMAIL],
-          from: 'my@weatherapp.com',
+          from: 'mihail@weatherapp.com',
           subject: `The weather today in ${emailCity}`,
           text: text,
-          html: `<p><i>Your Majesty</i>, The weather today in <b>${emailCity}</b> will be <b style='color: orangered;'>${roundedWeather}</b></p>`,
+          html: `<p><i>Your Majesty</i>, The weather today in <b>${emailCity}</b> will be <b style='color: orangered;'>${roundedWeather}</b>, with ${weatherData.weather[0].description} <img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'></p>`,
         };
 	sgMail.send(msg);
     }
