@@ -20,10 +20,10 @@
             <% if(typeof weather !== 'undefined'){ %>
                 <p>
                     <%= weather %>
+                    <% if(typeof iconName !== 'undefined'){ %>
+                        <img src='http://openweathermap.org/img/w/<%= iconName %>.png'>
+                    <% } %>
                 </p>
-            <% } %>
-            <% if(typeof iconName !== 'undefined'){ %>
-                <img src='http://openweathermap.org/img/w/<%= iconName %>.png'>
             <% } %>
             <% if(typeof error !== 'undefined'){ %>
                 <p>
