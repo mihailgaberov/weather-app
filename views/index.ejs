@@ -22,7 +22,9 @@
                     <%= weather %>
                 </p>
             <% } %>
-
+            <% if(typeof img !== 'undefined'){ %>
+                <%= img %>
+            <% } %>
             <% if(typeof error !== 'undefined'){ %>
                 <p>
                     <%= error %>
