@@ -62,7 +62,7 @@ function sendEmail() {
       }
 	const msg = {
           to: [MY_EMAIL, HER_EMAIL],
-          from: 'mihail@weatherapp.com',
+          from: 'mincho.praznikov@vremeto.com',
           subject: `The weather today in ${emailCity}`,
           text: text,
           html: `<p><i>Your Majesty</i>, The weather in <b>${emailCity}</b> at the moment is <b style='color: orangered;'>${roundedWeather}</b>, with ${weatherData.weather[0].description} <img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'></p>`,
