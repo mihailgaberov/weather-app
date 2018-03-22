@@ -22,8 +22,8 @@
                     <%= weather %>
                 </p>
             <% } %>
-            <% if(typeof img !== 'undefined'){ %>
-                <%= img %>
+            <% if(typeof iconName !== 'undefined'){ %>
+                <img src='http://openweathermap.org/img/w/<%= iconName %>.png'>
             <% } %>
             <% if(typeof error !== 'undefined'){ %>
                 <p>
