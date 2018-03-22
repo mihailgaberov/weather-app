@@ -58,14 +58,14 @@ function sendEmail() {
 	text = 'Error occurred fetching the weather info, please check the Openweathermap API, it might be changed.'
       } else {
         roundedWeather = Math.round(parseInt(weatherData.main.temp))
-	text = `Your Majesty, The weather today in ${emailCity} will be ${roundedWeather}, with ${weatherData.weather[0].description}`
+	text = `Your Majesty, The weather in ${emailCity} at the moment is ${roundedWeather}, with ${weatherData.weather[0].description}`
       }
 	const msg = {
           to: [MY_EMAIL, HER_EMAIL],
           from: 'mihail@weatherapp.com',
           subject: `The weather today in ${emailCity}`,
           text: text,
-          html: `<p><i>Your Majesty</i>, The weather today in <b>${emailCity}</b> will be <b style='color: orangered;'>${roundedWeather}</b>, with ${weatherData.weather[0].description} <img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'></p>`,
+          html: `<p><i>Your Majesty</i>, The weather in <b>${emailCity}</b> at the moment is <b style='color: orangered;'>${roundedWeather}</b>, with ${weatherData.weather[0].description} <img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'></p>`,
         };
 	sgMail.send(msg);
     }
