@@ -33,8 +33,8 @@ app.post('/', function (req, res) {
         res.render('index', { weather: null, error: 'Error, please try again' })
       } else {
         const weatherText = `It's ${Math.round(parseInt(weatherData.main.temp))} degrees in ${weatherData.name}, with ${weatherData.weather[0].description}!`
-        // const img = `<img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'>`
-        res.render('index', { weather: weatherText, error: null })
+        const img = `<img src='http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png'>`
+        res.render('index', { weather: weatherText, img: img, error: null })
       }
     }
   })
