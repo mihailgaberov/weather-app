@@ -26,7 +26,7 @@ function sendEmail() {
 	text = `Your Majesty, The weather in ${emailCity} at the moment is ${roundedWeather}, with ${weatherData.weather[0].description}`
       }
 	const msg = {
-          to: [MY_EMAIL],
+          to: [MY_EMAIL, HER_EMAIL],
           from: 'mincho.praznikov@vremeto.com',
           subject: `The weather today in ${emailCity}`,
           text: text,
@@ -39,7 +39,7 @@ function sendEmail() {
 
 function start() {
 const job = new CronJob({
-  cronTime: '* * * * * *',
+  cronTime: '00 30 07 * * 1-5',
   onTick: function() {
     sendEmail()
   },
