@@ -37,6 +37,7 @@ function sendEmail() {
   })
 }
 
+function start() {
 const job = new CronJob({
   cronTime: '* * * * * *',
   onTick: function() {
@@ -45,5 +46,8 @@ const job = new CronJob({
   start: false,
   timeZone: timeZone
 })
-
-module.exports.start = job.start()
+job.start()
+}
+module.exports = {  
+    start: start
+}
