@@ -61,7 +61,8 @@ function sendEmail() {
 	text = `Your Majesty, The weather in ${emailCity} at the moment is ${roundedWeather}, with ${weatherData.weather[0].description}`
       }
 	const msg = {
-          to: [MY_EMAIL, HER_EMAIL],
+          //to: [MY_EMAIL, HER_EMAIL],
+	  to: [MY_EMAIL],
           from: 'mincho.praznikov@vremeto.com',
           subject: `The weather today in ${emailCity}`,
           text: text,
@@ -72,11 +73,13 @@ function sendEmail() {
   })
 }
 
-const job = new CronJob('00 30 07 * * 1-5', function () {
+var job = new CronJob({
+  //cronTime: '00 30 07 * * 1-5',
+  cronTime: '* * * * * *',
+  onTick: function() {
     sendEmail()
-  }, function () {
-    console.log('stopped...')
   },
-  true,
-  timeZone
-)
+  start: false,
+  timeZone: timeZone
+})
+job.start()
