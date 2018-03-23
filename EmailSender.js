@@ -3,6 +3,12 @@ const sgMail = require('@sendgrid/mail');
 const CronJob = require('cron').CronJob
 require('dotenv').config()
 
+const apiKey = process.env.WEATHERAPP_API_KEY
+const MY_EMAIL = process.env.MY_EMAIL
+const HER_EMAIL = process.env.HER_EMAIL
+const timeZone = 'Europe/Zurich'
+const emailCity = 'Zurich'
+
 function sendEmail() {
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${emailCity}&units=metric&appid=${apiKey}`
   request(url, function (err, response, body) {
