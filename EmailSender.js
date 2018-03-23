@@ -48,5 +48,4 @@ const job = new CronJob({
 
 module.exports = {
   start: job.start()
-  }
 }
