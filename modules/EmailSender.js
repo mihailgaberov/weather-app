@@ -39,7 +39,7 @@ function sendEmail() {
 
 function start() {
   const job = new CronJob({
-    cronTime: '00 30 07 * * 1-5',
+    cronTime: '00 30 07 * * *',
     onTick: function () {
       sendEmail()
     },
