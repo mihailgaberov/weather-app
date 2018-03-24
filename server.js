@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const emailSender = require('./EmailSender.js')
+const emailSender = require('./modules/EmailSender.js')
 
 const apiKey = process.env.WEATHERAPP_API_KEY
 const port = process.env.PORT || 8080
