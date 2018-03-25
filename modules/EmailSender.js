@@ -34,7 +34,4 @@ function sendEmail() {
     }
   })
 }
-
-module.exports = {
-  send: sendEmail
-}
+sendEmail()
