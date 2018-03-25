@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const emailSender = require('./modules/EmailSender.js')
 
 const apiKey = process.env.WEATHERAPP_API_KEY
 const port = process.env.PORT || 8080
@@ -18,6 +17,7 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   const city = req.body.city;
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+
   request(url, function (err, response, body) {
     if (err) {
       res.render('index', { weather: null, error: 'Error, please try again' })
@@ -36,5 +36,3 @@ app.post('/', function (req, res) {
 app.listen(port, function () {
   console.log('Server running on port: ', port)
 })
-
-emailSender.start()
